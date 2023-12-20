@@ -1,0 +1,33 @@
+name = "secret-santa-2023"
+default_targets = ["macos", "appimage", "win64", "lovejs"]
+build_directory = "makelove-build"
+
+love_files = [
+    "::git-ls-tree::",
+
+    "-*/.*",
+    "-*/dist*",
+]
+
+[lovejs]
+title = "reindeer got ran over by a grandma"
+memory = "200000000"  # starting memory of the webpage (default is 20 MB)
+
+[macos]
+# optionally, you can include a mac-specific icon, if not mac will use the same icon as other targets
+#icon_file = "macIcon.png"  # or macIcon.icns
+
+[macos.app_metadata]
+CFBundleName = "Secret Santa 2023"
+CFBundleIdentifier = "dev.mikepurdy.secretsanta202"
+NSHumanReadableCopyright = "Copyright © 2023 Mike Purdy"
+CFBundleShortVersionString = "0.0.1"
+
+[windows.exe_metadata]
+FileDescription = "{name} - {version}" # "LÖVE {löve version}"
+FileVersion = "{version}" # "{löve version}"
+CompanyName = "Mike Purdy" # "LÖVE World Domination Inc."
+LegalCopyright = "Copyright © 2023 Mike Purdy"
+ProductName = "{name}" # "LÖVE"
+ProductVersion = "<same as FileVersion>"
+OriginalFilename = "purdy-fall-2023.exe" # "love.exe"
