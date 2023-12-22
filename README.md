@@ -3,6 +3,11 @@ Somehow and old granny ran over this reindeer!  Now Santa isn't sure if he will 
 
 Use 'Q', 'W', 'E', and 'R' to get to the finish line to prove to Santa you still have it in you!
 
+
+---
+
+To play in fullscreen in browser, click the fullscreen button TWICE.
+
 ---
 
 This is a game made for 'donnn' for Secret Santa Jam 2023.
