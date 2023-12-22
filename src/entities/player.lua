@@ -227,7 +227,7 @@ function Player:draw_foreground(dt)
 		love.graphics.draw(self.overlay_spritesheet, sprite, x * 40, 40)
 	end
 	love.graphics.setColor(0, 0, 0)
-	love.graphics.print(string.format("distance: %s", self.distance), 0, 0, 0, 2, 2)
+	love.graphics.print(string.format("yards: %s", self.distance), 40, 40, 0, 2, 2)
 	love.graphics.setColor(1, 1, 1)
 	love.graphics.pop()
 end

@@ -1,7 +1,7 @@
 local FinishSign = class("FinishSign", {})
 
 function FinishSign:init(props)
-	self.x = 0
+	self.x = 4625
 	self.y = SCREEN_SIZE - 512
 	self.left_sign = love.graphics.newImage("assets/sign-left.png")
 	self.right_sign = love.graphics.newImage("assets/sign-right.png")

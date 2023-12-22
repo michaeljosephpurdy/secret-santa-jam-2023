@@ -12,6 +12,7 @@ function CameraSystem:onAddToWorld(world)
 	self.push:setBorderColor({ 0, 0, 0 })
 	self.offset = SCREEN_SIZE * 0.3
 	self.targets = {}
+	self.old_position = 0
 	self.position = 1
 	PubSub.subscribe("love.resize", function(data)
 		self.push:resize(data[1], data[2])
@@ -30,6 +31,9 @@ function CameraSystem:onRemove(e)
 end
 
 function CameraSystem:process(e, dt)
+	if not self.targets[1] or not self.targets[1].x then
+		return
+	end
 	self.targets[1].targetted = true
 	-- TODO: fix this damn lerping
 	self.old_position = self.position

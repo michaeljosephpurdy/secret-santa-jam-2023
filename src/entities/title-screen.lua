@@ -16,15 +16,16 @@ function TitleScreen:update(dt)
 	if love.keyboard.isDown("q") then
 		self.world:removeEntity(self)
 		PubSub.publish("title.over")
+		PubSub.publish("game.start")
 	end
 end
 
 function TitleScreen:draw(dt)
 	local variant = math.sin(love.timer:getTime())
 	local rotation = variant * variant * 0.2
-	local scale_x = 1 + variant * 0.1
-	local scale_y = 1 + variant * 0.1
-	love.graphics.draw(self.tree_img, self.x - SCREEN_SIZE * 1.75 / 3, self.y + self.title_img_offset * 1.1)
+	local scale_x = 0.9 + variant * 0.1
+	local scale_y = 0.9 + variant * 0.1
+	love.graphics.draw(self.tree_img, self.x - SCREEN_SIZE * 1.75 / 3, self.y) -- + self.title_img_offset * 0.3)
 	love.graphics.draw(
 		self.title_img,
 		self.x - SCREEN_SIZE * 1.75 / 3,

@@ -3,6 +3,7 @@ local Snowflake = class("Snowflake")
 function Snowflake:init(props)
 	self:randomize()
 	self.y = self.y + 50
+	self.color = { 1, 241 / 255, 232 / 255 }
 end
 
 function Snowflake:randomize()
@@ -20,7 +21,7 @@ function Snowflake:update(dt)
 end
 
 function Snowflake:draw_foreground(dt)
-	love.graphics.setColor(1, 1, 1)
+	love.graphics.setColor(self.color[1], self.color[2], self.color[3])
 	love.graphics.circle("fill", self.x, self.y, self.radius)
 end
 

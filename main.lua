@@ -49,8 +49,8 @@ function love.load()
 	title_screen.world = world
 	local player = Player:new({ physics_world = physics_world.physics_world })
 	player.world = world
-	-- world:addEntity(Tree:new({ physics_world = physics_world.physics_world }))
 	world:addEntity(player)
+	-- world:addEntity(Tree:new({ physics_world = physics_world.physics_world }))
 	--world:addEntity(Player:new({ physics_world = physics_world.physics_world, player_number = 2 }))
 	world:addEntity(ground)
 	for i = 0, 1000 do
