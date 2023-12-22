@@ -11,7 +11,9 @@ To play in fullscreen in browser, click the fullscreen button TWICE.
 ---
 
 This is a game made for 'donnn' for Secret Santa Jam 2023.
+'donnn' has been very good this year, and asked for a physics-based party game.
 
-I was a bit strapped for time, and couldn't completely finished, but figured it'd be best to submit SOMETHING.
-
+My intentions here was a QWOP-like.  It's not as fun as QWOP though, lol.
+I was a bit strapped for time and couldn't completely finished.
+Figured it was best to submit SOMETHING.
 
