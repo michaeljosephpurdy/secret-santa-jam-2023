@@ -45,16 +45,9 @@ function Clock:draw_foreground(dt)
 	if #seconds < 2 then
 		seconds = "0" .. tostring(seconds)
 	end
-	love.graphics.setColor({ 1, 1, 1 })
-	love.graphics.print("Thanks for playing!", 40, SCREEN_SIZE * 2 / 3, 0, 3, 3)
-	love.graphics.print(
-		string.format("your time: %s:%s", self.minutes, self.seconds),
-		40,
-		(SCREEN_SIZE * 2 / 3) + 50,
-		0,
-		3,
-		3
-	)
+	love.graphics.setColor({ 0, 0, 0 })
+	love.graphics.print("Thanks for playing!", 40, 160, 0, 3.5, 3.5)
+	love.graphics.print(string.format("your time: %s:%s", self.minutes, self.seconds), 40, 190, 0, 3.5, 3.5)
 	love.graphics.pop()
 end
 
