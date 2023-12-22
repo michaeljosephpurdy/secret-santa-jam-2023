@@ -6,15 +6,16 @@ local Clock = class("Clock", {
 
 function Clock:init(props)
 	PubSub.subscribe("title.over", function()
-		self.ready = true
+		self.calculate_time = true
 	end)
 	PubSub.subscribe("game.over", function()
-		self.ready = false
+		self.calculate_time = true
+		self.show_time = true
 	end)
 end
 
 function Clock:update(dt)
-	if not self.ready then
+	if not self.calculate_time then
 		return
 	end
 	self.milliseconds = self.milliseconds + dt
@@ -29,7 +30,7 @@ function Clock:update(dt)
 end
 
 function Clock:draw_foreground(dt)
-	if not self.ready then
+	if not self.show_time then
 		return
 	end
 	love.graphics.push()

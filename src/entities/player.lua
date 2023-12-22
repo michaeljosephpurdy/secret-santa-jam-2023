@@ -143,20 +143,30 @@ function Player:init(props)
 end
 
 function Player:update(dt)
+	if self.ignore_input then
+		return
+	end
 	self.x = self.body.body:getX()
+	self.distance = math.floor(self.x / 100)
+
 	if self.thigh_backward then
 		self.thigh.body:setAngularVelocity(self.thigh_torque)
 	elseif self.thigh_forward then
 		self.thigh.body:setAngularVelocity(-self.thigh_torque)
 	else
-		self.thigh.body:setAngularVelocity(self.thigh.body:getAngularVelocity() * self.friction)
+		--self.thigh.body:setAngularVelocity(self.thigh.body:getAngularVelocity() * self.friction)
 	end
 	if self.shin_backward then
 		self.shin.body:setAngularVelocity(self.shin_torque)
 	elseif self.shin_forward then
 		self.shin.body:setAngularVelocity(-self.shin_torque)
 	else
-		self.shin.body:setAngularVelocity(self.shin.body:getAngularVelocity() * self.friction)
+		--self.shin.body:setAngularVelocity(self.shin.body:getAngularVelocity() * self.friction)
+	end
+
+	if self.distance > 50 then
+		PubSub.publish("game.over")
+		self.ignore_input = true
 	end
 end
 
@@ -214,8 +224,11 @@ function Player:draw_foreground(dt)
 		table.insert(overlay_sprites, self.overlay_quads.idle[4])
 	end
 	for x, sprite in pairs(overlay_sprites) do
-		love.graphics.draw(self.overlay_spritesheet, sprite, x * 40, 10)
+		love.graphics.draw(self.overlay_spritesheet, sprite, x * 40, 40)
 	end
+	love.graphics.setColor(0, 0, 0)
+	love.graphics.print(string.format("distance: %s", self.distance), 0, 0, 0, 2, 2)
+	love.graphics.setColor(1, 1, 1)
 	love.graphics.pop()
 end
 

@@ -7,12 +7,15 @@ function Ground:init(props)
 	local left_boundary_body = love.physics.newBody(props.physics_world, -50, 0)
 	local left_boundary_shape = love.physics.newRectangleShape(10, 1000)
 	local left_boundary_fixture = love.physics.newFixture(left_boundary_body, left_boundary_shape)
-	self.body = love.physics.newBody(props.physics_world, 2400 / 2, 650 - 50 / 2)
-	-- make a rectangle with a width of 650 and a height of 50
-	self.shape = love.physics.newRectangleShape(2400, 50)
-	-- attach shape to body
-	self.fixture = love.physics.newFixture(self.body, self.shape)
-	self.fixture:setCategory(1)
+
+	for i = 0, 10 do
+		local width = 1000
+		local x = i * 1000
+		local body = love.physics.newBody(props.physics_world, x + width / 2, 650 - 50 / 2)
+		local shape = love.physics.newRectangleShape(width, 50)
+		local fixture = love.physics.newFixture(body, shape)
+		fixture:setCategory(1)
+	end
 	self.foreground_objects = {}
 	for i = 0, 1000 do
 		table.insert(
