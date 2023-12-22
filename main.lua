@@ -3,6 +3,7 @@ require("plugins.30log")
 tiny = require("plugins.tiny-ecs")
 require("plugins.table-addons")
 SYSTEMS_IN_ORDER = {
+	require("src.systems.music-system"),
 	require("src.systems.physic-update-system"),
 	require("src.systems.player-input-system"),
 	require("src.systems.update-system"),
@@ -21,6 +22,7 @@ end
 SCREEN_SIZE = 650
 SIXTY_FPS = 1 / 60
 
+local BackgroundMusic = require("src.entities.background-music")
 local PhysicsWorld = require("src.entities.physics-world")
 local Player = require("src.entities.player")
 local Ground = require("src.entities.ground")
@@ -41,6 +43,7 @@ function love.load()
 		world:addSystem(system)
 	end
 
+	world:addEntity(BackgroundMusic:new())
 	local physics_world = PhysicsWorld:new()
 	world:addEntity(physics_world)
 	local ground = Ground:new({ physics_world = physics_world.physics_world })

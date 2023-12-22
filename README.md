@@ -17,3 +17,14 @@ My intentions here was a QWOP-like.  It's not as fun as QWOP though, lol.
 I was a bit strapped for time and couldn't completely finished.
 Figured it was best to submit SOMETHING.
 
+---
+
+Credits:
+
+Art: me
+
+Code: me
+
+Music: https://void1gaming.itch.io/christmas-music-pack
+
+
