@@ -21,6 +21,9 @@ function Clock:update(dt)
 	if not self.calculate_time then
 		return
 	end
+	if self.show_time then
+		return
+	end
 	self.milliseconds = self.milliseconds + dt
 	if self.milliseconds >= 1 then
 		self.milliseconds = self.milliseconds - 1
@@ -43,8 +46,15 @@ function Clock:draw_foreground(dt)
 		seconds = "0" .. tostring(seconds)
 	end
 	love.graphics.setColor({ 1, 1, 1 })
-	love.graphics.print("Thanks for playing!", 40, SCREEN_SIZE - 120, 0, 3, 3)
-	love.graphics.print(string.format("your time: %s:%s", self.minutes, self.seconds), 40, SCREEN_SIZE - 100, 0, 3, 3)
+	love.graphics.print("Thanks for playing!", 40, SCREEN_SIZE * 2 / 3, 0, 3, 3)
+	love.graphics.print(
+		string.format("your time: %s:%s", self.minutes, self.seconds),
+		40,
+		(SCREEN_SIZE * 2 / 3) + 50,
+		0,
+		3,
+		3
+	)
 	love.graphics.pop()
 end
 
