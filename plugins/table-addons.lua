@@ -1,5 +1,3 @@
-print("hello")
-
 table.for_each = function(t, fn)
 	for _, item in pairs(t) do
 		fn(item)
